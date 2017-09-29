@@ -1,2 +1,2 @@
 # projetosRN
-Repositorio criado para armazenar projetos que eu faça usando o React Native
+Repositorio criado para armazenar projetos que eu faço usando o React Native
