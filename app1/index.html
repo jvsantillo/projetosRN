@@ -1,0 +1,25 @@
+<div id="result">waiting for results... </div>
+
+<script src="search-index.min.js"></script>
+<script>
+
+// display search results in a div
+const paintResultDiv = function(result) {
+  console.log(result)
+  document.getElementById('result').innerHTML = result.document.body
+}
+
+// index some data
+const indexData = function(err, myCoolSearchIndex) {
+  mySearchIndex.concurrentAdd({}, data, function(err) {
+    // now you can perform search queries
+    myCoolSearchIndex.search('pickled onions').on('data', paintResultDiv)
+  })
+}
+
+// initialize search-index
+SearchIndex({
+  indexPath: 'fergie'
+}, indexData) 
+
+</script>
