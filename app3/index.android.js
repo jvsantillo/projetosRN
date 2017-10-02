@@ -13,6 +13,9 @@ class ComponentePersonalizado extends Component {
       <View>
         <Text>Primeiro</Text>
         <Text>Segundo</Text>
+        <Text>this.props.prop1</Text>
+        <Text>this.props.prop2</Text>
+        <Text>this.props.prop3</Text>
       </View> 
 
     );
@@ -23,7 +26,7 @@ class app3 extends Component {
   render() {
    return(
     
-    <ComponentePersonalizado></ComponentePersonalizado>
+    <ComponentePersonalizado prop1 = "bla" prop2 = "ble" prop3 = "bleu"></ComponentePersonalizado>
 
    );
   }
