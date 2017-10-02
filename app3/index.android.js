@@ -13,9 +13,12 @@ class ComponentePersonalizado extends Component {
       <View>
         <Text>Primeiro</Text>
         <Text>Segundo</Text>
-        <Text>this.props.prop1</Text>
-        <Text>this.props.prop2</Text>
-        <Text>this.props.prop3</Text>
+        <Text>{this.props.prop1}</Text>
+        <Text>{this.props.prop2}</Text>
+        <Text>{this.props.prop3}</Text>
+        <TouchableOpacity>
+          
+        </TouchableOpacity>
       </View> 
 
     );
