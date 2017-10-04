@@ -47,7 +47,7 @@ class ComponentePersonalizado extends Component {
 }
 
 const botaoApertado =  () =>  {
-   alert("O botão foi apertado");
+   alert("O botão foi pressionado");
 }
 
 
