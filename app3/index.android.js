@@ -61,12 +61,11 @@ class app3 extends Component {
   render() {
    return(
     <View style = {Estilo.principal}>
-        <Button onPress = {botaoApertado} label = "Toque para mudar o texto"></Button>
+        <Button onPress = {botaoApertado} title = 'Toque para mudar o texto'/>
         <ComponentePersonalizado prop1 = {this.state.texto} ></ComponentePersonalizado>
     </View>
-
    );
   }
 }
 
-AppRegistry.registerComponent('app3', () => app3);
+AppRegistry.registerCpomponent('app3', () => app3);
