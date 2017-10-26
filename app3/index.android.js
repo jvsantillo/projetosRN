@@ -70,9 +70,10 @@ class app3 extends Component {
                (this.state.opcaoComputador == "Tesoura" && this.state.opcaoJogador == "Pedra")){ 
                  this.setState({resultado: "Vitória do usuário"})
              
-               }else if((this.state.opcaoComputador == "Papel" && this.state.opcaoJogador == "Pedra") ||
-                (this.state.opcaoComputador == "Tesoura" && this.state.opcaoJogador == "Papel") ||
-                (this.state.opcaoComputador == "Pedra" && this.state.opcaoJogador == "Tesoura")){ 
+               }else //if((this.state.opcaoComputador == "Papel" && this.state.opcaoJogador == "Pedra") ||
+                //(this.state.opcaoComputador == "Tesoura" && this.state.opcaoJogador == "Papel") ||
+                //(this.state.opcaoComputador == "Pedra" && this.state.opcaoJogador == "Tesoura"))
+                { 
                   
                     this.setState({resultado: "Vitória do computador"}) 
 
