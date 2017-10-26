@@ -34,38 +34,73 @@ const Estilo = {
   }
 }
 
-class ComponentePersonalizado extends Component {
-  
-  render() {
-    return(      
-      <View>
-        <Text>{this.props.prop1}</Text>
-      </View> 
-
-    );
-  }
-}
-
-const botaoApertado =  () =>  {
-   alert("O botão foi pressionado");
-}
 
 
 class app3 extends Component {
-  constructor(props) {
+
+  constructor(props){
     super(props);
 
-    this.state = { texto: "Texto padrão"}
+    this.state = {opcaoJogador : "", opcaoComputador: "", resultado: ""}
   }
 
-  render() {
+  jokenpo(opcaoJogador){
+    this.setState({opcaoJogador : opcaoJogador})
+    this.escolhaComputador();
+  }
+
+  escolhaComputador(){
+    var numero = Math.random()*10;
+    numero = Math.floor(numero);
+    if(numero < 3){
+      this.setState({opcaoComputador : "Pedra" });
+    } else if (numero >= 3 && numero < 7){
+      this.setState({opcaoComputador : "Tesoura" });
+    } else if(numero >= 7 && numero < 9){
+      this.setState({opcaoComputador : "Papel" });
+    }
+    
+  }
+
+  definirResultado(){
+    if(this.state.opcaoComputador == this.state.opcaoJogador){
+        this.setState({resultado: "Empate"}) 
+    } else if((this.state.opcaoComputador == "Pedra" && this.state.opcaoJogador == "Papel") ||
+               (this.state.opcaoComputador == "Papel" && this.state.opcaoJogador == "Tesoura") ||
+               (this.state.opcaoComputador == "Tesoura" && this.state.opcaoJogador == "Pedra")){ 
+                 this.setState({resultado: "Vitória do usuário"})
+             
+               }else if((this.state.opcaoComputador == "Papel" && this.state.opcaoJogador == "Pedra") ||
+                (this.state.opcaoComputador == "Tesoura" && this.state.opcaoJogador == "Papel") ||
+                (this.state.opcaoComputador == "Pedra" && this.state.opcaoJogador == "Tesoura")){ 
+                  
+                    this.setState({resultado: "Vitória do computador"}) 
+
+                }                                                                              
+    }
+
+  render(){
    return(
     <View style = {Estilo.principal}>
-        <Button onPress = {botaoApertado} title = 'Toque para mudar o texto'/>
-        <ComponentePersonalizado prop1 = {this.state.texto} ></ComponentePersonalizado>
+        <Text>Escolha do computador: {this.state.opcaoComputador}</Text>
+        <Text>Escolha do usuário: {this.state.opcaoJogador}</Text>
+        <Text>Resultado: {this.state.resultado}</Text>
+        
+        <Button title = "Pedra"
+                onPress = {() => {this.jokenpo("Pedra")}}
+        />
+        <Button title = "Papel"
+                onPress = {() => {this.jokenpo("Papel")}}
+        />
+        <Button title = "Tesoura"
+                onPress = {() => {this.jokenpo("Tesoura")}}
+        />
+        <Button title = "Definir resultado"
+                onPress = { () => {this.definirResultado()}}
+        />
     </View>
    );
   }
 }
 
-AppRegistry.registerCpomponent('app3', () => app3);
+AppRegistry.registerComponent("app3", () => app3);
